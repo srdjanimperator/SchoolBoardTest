@@ -35,4 +35,21 @@ class Student
         return new Student($row['id'], $row['name'], $row['school_board_id']);
     }
 
+    public function grades()
+    {
+        $query = "SELECT grade FROM student_grades WHERE student_id = :id";
+
+        try {
+            $db = Connection::get();
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':id', $this->id, PDO::PARAM_INT);
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            die ($e->getMessage());
+        }
+
+        return $rows;
+    }
+
 }

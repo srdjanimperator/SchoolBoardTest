@@ -2,6 +2,7 @@
 
 include ROOT . "/config/db.php";
 include ROOT . "/config/routes.php";
+include ROOT . "/config/criteria.php";
 
 class App
 {
