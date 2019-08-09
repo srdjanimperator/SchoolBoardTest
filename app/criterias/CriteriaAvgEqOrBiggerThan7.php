@@ -3,6 +3,7 @@
 
 class CriteriaAvgEqOrBiggerThan7 implements ICriteria
 {
+    public $name = "average_equals_or_bigger_than_7";
 
     public function passed($grades)
     {

@@ -3,6 +3,7 @@
 
 class CriteriaBiggestGreaterThan8 implements ICriteria
 {
+    public $name = "biggest_greater_than_8";
 
     public function passed($grades)
     {

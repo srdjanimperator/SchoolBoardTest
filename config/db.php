@@ -3,7 +3,7 @@
 $db = [
     'host' => 'localhost',
     'username' => 'imperator',
-    'password' => 'password',
+    'password' => 'a123a456a',
     'database' => 'schoolboard'
 ];
 
