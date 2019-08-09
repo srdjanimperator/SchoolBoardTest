@@ -108,7 +108,7 @@ CREATE TABLE `student_grades` (
   PRIMARY KEY (`id`),
   KEY `student_id` (`student_id`),
   CONSTRAINT `student_grades_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,6 +117,7 @@ CREATE TABLE `student_grades` (
 
 LOCK TABLES `student_grades` WRITE;
 /*!40000 ALTER TABLE `student_grades` DISABLE KEYS */;
+INSERT INTO `student_grades` VALUES (1,1,8),(2,1,7),(3,1,10);
 /*!40000 ALTER TABLE `student_grades` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -129,4 +130,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-09 15:24:24
+-- Dump completed on 2019-08-09 17:00:18

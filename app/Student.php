@@ -35,6 +35,23 @@ class Student
         return new Student($row['id'], $row['name'], $row['school_board_id']);
     }
 
+    public function save()
+    {
+        $query = "INSERT INTO student (name, school_board_id) VALUES (:name, :school_board_id)";
+
+        try {
+            $db = Connection::get();
+            $stmt = $db->prepare($query);
+            $stmt->bindParam(':name', $this->name, PDO::PARAM_STR);
+            $stmt->bindParam(':school_board_id', $this->school_board_id, PDO::PARAM_INT);
+            $status = $stmt->execute();
+        } catch (PDOException $e) {
+            die ($e->getMessage());
+        }
+
+        return $status;
+    }
+
     public function grades()
     {
         $query = "SELECT grade FROM student_grades WHERE student_id = :id";
@@ -44,12 +61,15 @@ class Student
             $stmt = $db->prepare($query);
             $stmt->bindParam(':id', $this->id, PDO::PARAM_INT);
             $stmt->execute();
-            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $grades = [];
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $grades[] = (int)$row['grade'];
+            }
         } catch (PDOException $e) {
             die ($e->getMessage());
         }
 
-        return $rows;
+        return $grades;
     }
 
 }

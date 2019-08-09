@@ -13,7 +13,7 @@ class CriteriaAvgEqOrBiggerThan7 implements ICriteria
             return false;
         }
 
-        $avg = (array_sum() * 1.0) / $len;
+        $avg = (array_sum($grades) * 1.0) / $len;
 
         return $avg >= 7.0;
     }
