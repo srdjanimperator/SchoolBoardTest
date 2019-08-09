@@ -4,10 +4,10 @@ function __autoload($class_name)
 {
     $dirs = array(
         'lib/',
-        'domainlib/',
-        'domainlib/controllers/',
-        'domainlib/criterias/',
-        'domainlib/formaters/'
+        'app/',
+        'app/controllers/',
+        'app/criterias/',
+        'app/formaters/'
     );
 
     foreach ($dirs as $directory) {
